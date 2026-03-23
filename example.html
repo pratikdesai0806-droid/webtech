@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #0f0f13;
+      color: #e8e6ff;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      color: #c8b8ff;
+      text-align: center;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #7a7a9a;
+      font-size: 1rem;
+      margin-bottom: 48px;
+    }
+
+    .section {
+      background-color: #18181f;
+      border: 1px solid #2a2a38;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #c8b8ff;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #2a2a38;
+    }
+
+    .property-label {
+      font-size: 0.78rem;
+      color: #6060a0;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .demo-row {
+      margin-bottom: 22px;
+    }
+
+    .small-text    { font-size: 12px; color: #c8c8e8; }
+    .medium-text   { font-size: 18px; color: #c8c8e8; }
+    .large-text    { font-size: 28px; color: #c8c8e8; }
+    .xlarge-text   { font-size: 42px; color: #c8c8e8; }
+
+    .serif-font    { font-family: Georgia, serif; color: #c8c8e8; font-size: 20px; }
+    .mono-font     { font-family: 'Courier New', monospace; color: #c8c8e8; font-size: 18px; }
+    .sans-font     { font-family: 'DM Sans', sans-serif; color: #c8c8e8; font-size: 18px; }
+    .fantasy-font  { font-family: 'Palatino Linotype', serif; font-style: italic; color: #c8c8e8; font-size: 20px; }
+
+    .normal-weight { font-weight: 400; color: #c8c8e8; font-size: 20px; }
+    .bold-weight   { font-weight: 700; color: #c8c8e8; font-size: 20px; }
+    .light-weight  { font-weight: 300; color: #c8c8e8; font-size: 20px; }
+
+    .italic-style  { font-style: italic; color: #c8c8e8; font-size: 20px; }
+    .normal-style  { font-style: normal; color: #c8c8e8; font-size: 20px; }
+
+    .underline-deco    { text-decoration: underline; color: #c8c8e8; font-size: 18px; }
+    .overline-deco     { text-decoration: overline; color: #c8c8e8; font-size: 18px; }
+    .linethrough-deco  { text-decoration: line-through; color: #c8c8e8; font-size: 18px; }
+    .none-deco         { text-decoration: none; color: #c8c8e8; font-size: 18px; }
+
+    .uppercase-text    { text-transform: uppercase; color: #c8c8e8; font-size: 18px; }
+    .lowercase-text    { text-transform: lowercase; color: #c8c8e8; font-size: 18px; }
+    .capitalize-text   { text-transform: capitalize; color: #c8c8e8; font-size: 18px; }
+
+    .left-align    { text-align: left;   color: #c8c8e8; font-size: 18px; background: #23232e; padding: 8px 12px; border-radius: 6px; }
+    .center-align  { text-align: center; color: #c8c8e8; font-size: 18px; background: #23232e; padding: 8px 12px; border-radius: 6px; }
+    .right-align   { text-align: right;  color: #c8c8e8; font-size: 18px; background: #23232e; padding: 8px 12px; border-radius: 6px; }
+
+    .red-color    { color: #ff6b6b; font-size: 20px; }
+    .green-color  { color: #6bffb8; font-size: 20px; }
+    .blue-color   { color: #6bb5ff; font-size: 20px; }
+    .purple-color { color: #c8b8ff; font-size: 20px; }
+
+    .bg-demo {
+      font-size: 17px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .bg-yellow { background-color: #ffe56b; color: #1a1a00; }
+    .bg-teal   { background-color: #1a4a4a; color: #6bffe0; }
+    .bg-purple { background-color: #2e1a5a; color: #c8b8ff; }
+
+    .box-demo {
+      background: #1e1e2a;
+      color: #c8c8e8;
+      font-size: 15px;
+      display: inline-block;
+      margin-right: 12px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+    }
+    .padding-sm  { padding: 4px 8px; }
+    .padding-md  { padding: 14px 24px; }
+    .padding-lg  { padding: 24px 40px; }
+
+    .margin-demo {
+      color: #c8c8e8;
+      font-size: 15px;
+      background: #23232e;
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+    .margin-sm { margin: 4px; }
+    .margin-md { margin: 16px; }
+    .margin-lg { margin: 32px; }
+
+    .border-solid  { border: 2px solid #c8b8ff; color: #c8c8e8; font-size: 16px; padding: 8px 14px; border-radius: 4px; display: inline-block; margin-right: 10px; margin-bottom: 8px; }
+    .border-dashed { border: 2px dashed #6bffb8; color: #c8c8e8; font-size: 16px; padding: 8px 14px; border-radius: 4px; display: inline-block; margin-right: 10px; margin-bottom: 8px; }
+    .border-dotted { border: 2px dotted #ff6b6b; color: #c8c8e8; font-size: 16px; padding: 8px 14px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+
+    .radius-none   { border-radius: 0px;  background: #c8b8ff; color: #0f0f13; font-size: 15px; padding: 10px 18px; display: inline-block; margin-right: 10px; margin-bottom: 8px; }
+    .radius-small  { border-radius: 4px;  background: #c8b8ff; color: #0f0f13; font-size: 15px; padding: 10px 18px; display: inline-block; margin-right: 10px; margin-bottom: 8px; }
+    .radius-large  { border-radius: 16px; background: #c8b8ff; color: #0f0f13; font-size: 15px; padding: 10px 18px; display: inline-block; margin-right: 10px; margin-bottom: 8px; }
+    .radius-pill   { border-radius: 999px; background: #c8b8ff; color: #0f0f13; font-size: 15px; padding: 10px 18px; display: inline-block; margin-bottom: 8px; }
+
+    .width-demo {
+      height: 36px;
+      background: linear-gradient(90deg, #c8b8ff, #6bffb8);
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .w-25  { width: 25%; }
+    .w-50  { width: 50%; }
+    .w-75  { width: 75%; }
+    .w-100 { width: 100%; }
+
+    .opacity-demo {
+      display: inline-block;
+      background: #c8b8ff;
+      color: #0f0f13;
+      font-size: 15px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+    .op-25  { opacity: 0.25; }
+    .op-50  { opacity: 0.5; }
+    .op-75  { opacity: 0.75; }
+    .op-100 { opacity: 1; }
+
+    .cursor-demo {
+      display: inline-block;
+      background: #23232e;
+      border: 1px solid #3a3a55;
+      color: #c8c8e8;
+      font-size: 15px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+    .cur-pointer  { cursor: pointer; }
+    .cur-text     { cursor: text; }
+    .cur-crosshair{ cursor: crosshair; }
+    .cur-not      { cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Styles Playground</h1>
+  <p class="subtitle">Hover, read, and explore — every property shown live</p>
+
+  <div class="section">
+    <div class="section-title">font-size</div>
+    <div class="demo-row">
+      <div class="property-label">font-size: 12px</div>
+      <div class="small-text">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-size: 18px</div>
+      <div class="medium-text">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-size: 28px</div>
+      <div class="large-text">The quick brown fox</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-size: 42px</div>
+      <div class="xlarge-text">Hello CSS!</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">font-family</div>
+    <div class="demo-row">
+      <div class="property-label">font-family: Georgia, serif</div>
+      <div class="serif-font">Elegant and classic serif style</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-family: 'Courier New', monospace</div>
+      <div class="mono-font">Looks like code — every char is same width</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-family: 'DM Sans', sans-serif</div>
+      <div class="sans-font">Clean and modern — great for reading</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-family: 'Palatino Linotype', serif (italic)</div>
+      <div class="fantasy-font">Refined and literary feeling</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">font-weight</div>
+    <div class="demo-row">
+      <div class="property-label">font-weight: 300 (Light)</div>
+      <div class="light-weight">Light weight text feels delicate</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-weight: 400 (Normal)</div>
+      <div class="normal-weight">Normal weight is the default</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-weight: 700 (Bold)</div>
+      <div class="bold-weight">Bold weight stands out strongly</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">font-style</div>
+    <div class="demo-row">
+      <div class="property-label">font-style: normal</div>
+      <div class="normal-style">This text is upright and normal</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">font-style: italic</div>
+      <div class="italic-style">This text is slanted — italic style</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">text-decoration</div>
+    <div class="demo-row">
+      <div class="property-label">text-decoration: underline</div>
+      <div class="underline-deco">Underlined text like a link</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-decoration: overline</div>
+      <div class="overline-deco">Line appears above the text</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-decoration: line-through</div>
+      <div class="linethrough-deco">Crossed out — like deleted text</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-decoration: none</div>
+      <div class="none-deco">No decoration at all (removes underlines from links too)</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">text-transform</div>
+    <div class="demo-row">
+      <div class="property-label">text-transform: uppercase</div>
+      <div class="uppercase-text">all letters become capitals</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-transform: lowercase</div>
+      <div class="lowercase-text">ALL LETTERS BECOME SMALL</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-transform: capitalize</div>
+      <div class="capitalize-text">first letter of every word is capital</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">text-align</div>
+    <div class="demo-row">
+      <div class="property-label">text-align: left</div>
+      <div class="left-align">Text aligned to the left</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-align: center</div>
+      <div class="center-align">Text aligned to the center</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">text-align: right</div>
+      <div class="right-align">Text aligned to the right</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">color</div>
+    <div class="demo-row">
+      <div class="property-label">color: #ff6b6b (Red)</div>
+      <div class="red-color">This text is red</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">color: #6bffb8 (Green)</div>
+      <div class="green-color">This text is green</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">color: #6bb5ff (Blue)</div>
+      <div class="blue-color">This text is blue</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">color: #c8b8ff (Purple)</div>
+      <div class="purple-color">This text is purple</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">background-color</div>
+    <div class="demo-row">
+      <div class="property-label">background-color: #ffe56b</div>
+      <div class="bg-demo bg-yellow">Yellow background with dark text</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">background-color: #1a4a4a</div>
+      <div class="bg-demo bg-teal">Teal background with light text</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">background-color: #2e1a5a</div>
+      <div class="bg-demo bg-purple">Dark purple background</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">padding</div>
+    <div class="demo-row">
+      <div class="property-label">padding: 4px 8px (Small)</div>
+      <div class="box-demo padding-sm">Small Padding</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">padding: 14px 24px (Medium)</div>
+      <div class="box-demo padding-md">Medium Padding</div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">padding: 24px 40px (Large)</div>
+      <div class="box-demo padding-lg">Large Padding</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">border</div>
+    <div class="demo-row">
+      <div class="property-label">border: 2px solid</div>
+      <span class="border-solid">Solid Border</span>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">border: 2px dashed</div>
+      <span class="border-dashed">Dashed Border</span>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">border: 2px dotted</div>
+      <span class="border-dotted">Dotted Border</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">border-radius</div>
+    <div class="demo-row">
+      <span class="radius-none">0px — Sharp</span>
+      <span class="radius-small">4px — Slight</span>
+      <span class="radius-large">16px — Rounded</span>
+      <span class="radius-pill">999px — Pill</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">width</div>
+    <div class="demo-row">
+      <div class="property-label">width: 25%</div>
+      <div class="width-demo w-25"></div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">width: 50%</div>
+      <div class="width-demo w-50"></div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">width: 75%</div>
+      <div class="width-demo w-75"></div>
+    </div>
+    <div class="demo-row">
+      <div class="property-label">width: 100%</div>
+      <div class="width-demo w-100"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">opacity</div>
+    <div class="demo-row">
+      <span class="opacity-demo op-25">opacity: 0.25</span>
+      <span class="opacity-demo op-50">opacity: 0.50</span>
+      <span class="opacity-demo op-75">opacity: 0.75</span>
+      <span class="opacity-demo op-100">opacity: 1.00</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">cursor — hover over each box!</div>
+    <div class="demo-row">
+      <span class="cursor-demo cur-pointer">cursor: pointer (hand)</span>
+      <span class="cursor-demo cur-text">cursor: text (I-beam)</span>
+      <span class="cursor-demo cur-crosshair">cursor: crosshair (+)</span>
+      <span class="cursor-demo cur-not">cursor: not-allowed (🚫)</span>
+    </div>
+  </div>
+
+</body>
+</html>
+
